@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:10
+    environment:
+      POSTGRES_USER: "facecpar"
+      POSTGRES_PASSWORD: "facecpar123"
+      POSTGRES_DB: "BD_FACECPAR"
+    ports:
+      - "5432:5432"
+    networks:
+      - pg-network
+ 
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "facecpar@bd_facecpar.inc"
+      PGADMIN_DEFAULT_PASSWORD: "facecpar123"
+    ports:
+      - "8080:80" # Esquerda Externo:Direita Interno
+    depends_on:
+      - postgres
+    networks:
+      - pg-network
+
+networks:
+  pg-network:
+    driver: bridge   

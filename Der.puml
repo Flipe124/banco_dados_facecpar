@@ -1,0 +1,71 @@
+@startuml Der
+
+
+entity consumidor { 
+    *ID_consumidor : int  not null <<PK>>
+    --
+    *ID_medidor : int not null <<FK>>
+    *ID_taxa : int not null <<FK>>
+    *Nome : varchar(50) not null
+    *Endereco : varchar(100) not null 
+    *Tipo : char not null 
+}
+
+entity taxa {
+    *ID_taxa : int not null <<PK>>
+    --
+    *Numero : int not null
+    *Descricao : varchar(300)
+    *Valor_fixo : float not null
+    *Limite_consumo : float not null
+    *Valor_variavel : float not null
+}
+
+entity medidor {
+    *ID_medidor : int  not null <<PK>>
+    --
+    *Numero : int not null
+    *Endereço : varchar(50) not null
+    *Tamanho : float not null
+    *Modelo : varchar(50) not null
+}
+
+entity leitura {
+    *ID_leitura : int  not null <<PK>>
+    --
+    *Numero : int not null
+    *ID_funcionario : int  not null <<FK>>
+    *ID_medidor : int not null  <<FK>>
+    *Data : date not null
+    *Consumo : double  null
+}
+
+entity conta{
+    *ID : int  not null <<PK>>
+    --
+    *Numero : int not null
+    *ID_medidor : int not null <<FK>>
+    *ID_consumidor : int not null <<FK>>
+    *Leitura : double not null
+    *Elaboracao : date not null
+    *Prazo : date not null
+    *Periodo : date not null
+    *consumo : double not null
+    *Valor : float not null
+}
+
+entity funcionario {
+    *ID_funcionario : int not null <<PK>>
+    --
+    *Numero : int not null 
+}
+
+consumidor ||--o{ medidor
+consumidor ||--o{ conta
+conta ||--|| leitura
+funcionario ||--o{ leitura
+taxa ||--|{ consumidor
+medidor ||--o{ leitura
+
+
+@enduml
