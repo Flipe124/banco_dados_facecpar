@@ -4,9 +4,9 @@ services:
   postgres:
     image: postgres:10
     environment:
-      POSTGRES_USER: "marcio"
-      POSTGRES_PASSWORD: "marcio123"
-      POSTGRES_DB: "data_marcio"
+      POSTGRES_USER: "felipe"
+      POSTGRES_PASSWORD: "felipe123"
+      POSTGRES_DB: "data_facecpar"
     ports:
       - "5432:5432"
     networks:
@@ -15,8 +15,8 @@ services:
   pgadmin:
     image: dpage/pgadmin4:latest
     environment:
-      PGADMIN_DEFAULT_EMAIL: "marcio@datamarcio.inc"
-      PGADMIN_DEFAULT_PASSWORD: "marcio123"
+      PGADMIN_DEFAULT_EMAIL: "felipe@data_facecpar.inc"
+      PGADMIN_DEFAULT_PASSWORD: "felipe123"
     ports:
       - "8080:80" # Esquerda Externo:Direita Interno
     depends_on:
