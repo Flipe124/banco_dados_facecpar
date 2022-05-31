@@ -6,4 +6,5 @@ CREATE TABLE taxa(
     limite_consumo FLOAT       NOT NULL,
     valor_variavel FLOAT       NOT NULL,
     CONSTRAINT pk_taxa PRIMARY KEY (id)
+    UNIQUE(numero)
 );
