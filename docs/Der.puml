@@ -2,62 +2,69 @@
 
 
 entity consumidor { 
-    *ID_consumidor : int  not null <<PK>>
+    *id         : INT          NOT NULL <<PK>>
     --
-    *ID_medidor : int not null <<FK>>
-    *ID_taxa : int not null <<FK>>
-    *Nome : varchar(50) not null
-    *Endereco : varchar(100) not null 
-    *Tipo : char not null 
+    *pk_medidor : INT          NOT NULL <<FK>>
+    *pk_taxa    : INT          NOT NULL <<FK>>
+    *nome       : VARCHAR(50)  NOT NULL
+    *endereco   : VARCHAR(100) NOT NULL 
+    *tipo       : CHAR         NOT NULL 
 }
 
 entity taxa {
-    *ID_taxa : int not null <<PK>>
+    *id             : INT          NOT NULL <<PK>>
     --
-    *Numero : int not null
-    *Descricao : varchar(300)
-    *Valor_fixo : float not null
-    *Limite_consumo : float not null
-    *Valor_variavel : float not null
+    *numero         : INT          NOT NULL
+    *descricao      : VARCHAR(300)     NULL
+    *valor_fixo     : FLOAT        NOT NULL
+    *limite_consumo : FLOAT        NOT NULL
+    *valor_variavel : FLOAT        NOT NULL
 }
 
 entity medidor {
-    *ID_medidor : int  not null <<PK>>
+    *id       : INT         NOT NULL <<PK>>
     --
-    *Numero : int not null
-    *Endereço : varchar(50) not null
-    *Tamanho : float not null
-    *Modelo : varchar(50) not null
+    *numero   : INT         NOT NULL
+    *endereço : VARCHAR(50) NOT NULL
+    *tamanho  : FLOAT       NOT NULL
+    *modelo   : VARCHAR(50) NOT NULL
 }
 
 entity leitura {
-    *ID_leitura : int  not null <<PK>>
+    *id             : INT  NOT NULL <<PK>>
     --
-    *Numero : int not null
-    *ID_funcionario : int  not null <<FK>>
-    *ID_medidor : int not null  <<FK>>
-    *Data : date not null
-    *Consumo : double  null
+    *Numero         : INT  NOT NULL
+    *pk_funcionario : INT  NOT NULL <<FK>>
+    *pk_medidor     : INT  NOT NULL <<FK>>
+    *data           : DATE NOT NULL
+    *consumo        : DOUBLE   NULL
 }
 
-entity conta{
-    *ID : int  not null <<PK>>
+entity conta {
+    *id            : INT    NOT NULL <<PK>>
     --
-    *Numero : int not null
-    *ID_medidor : int not null <<FK>>
-    *ID_consumidor : int not null <<FK>>
-    *Leitura : double not null
-    *Elaboracao : date not null
-    *Prazo : date not null
-    *Periodo : date not null
-    *consumo : double not null
-    *Valor : float not null
+    *numero        : INT    NOT NULL
+    *pk_medidor    : INT    NOT NULL <<FK>>
+    *pk_consumidor : INT    NOT NULL <<FK>>
+    *leitura       : DOUBLE NOT NULL
+    *elaboracao    : DATE   NOT NULL
+    *prazo         : DATE   NOT NULL
+    *periodo       : DATE   NOT NULL
+    *consumo       : DOUBLE NOT NULL
+    *valor         : FLOAT  NOT NULL
 }
 
 entity funcionario {
-    *ID_funcionario : int not null <<PK>>
+    *id     : INT NOT NULL <<PK>> 
     --
-    *Numero : int not null 
+    *numero : INT NOT NULL 
+}
+
+entity cidade {
+    *id   : INT        NOT NULL <<PK>>
+    --
+    *nome : INT        NOT NULL 
+    *uf   : VARCHAR(2) NOT NULL
 }
 
 consumidor ||--o{ medidor
