@@ -67,12 +67,29 @@ entity cidade {
     *uf   : VARCHAR(2) NOT NULL
 }
 
-consumidor ||--o{ medidor
-consumidor ||--o{ conta
-conta ||--|| leitura
+entity endereco{
+    *id               : INT          NOT NULL <<PK>>
+    --
+    *pk_consumidor    : INT          NOT NULL <<FK>>
+    *pk_cidade        : INT          NOT NULL <<FK>>
+    *logradouro       : VARCHAR(100) NOT NULL
+    *cep              : CHAR(8)      NOT NULL
+    *numero           : VARCHAR(5)       NULL
+    *sem_numero       : BOOLEAN      NOT NULL
+    *bairro           : VARCHAR(50)  NOT NULL
+    *tipo             : CHAR         NOT NULL
+    *complemento      : VARCHAR(50)      NULL
+    *ponto_referencia : VARCHAR(50)      NULL
+}
+
+consumidor  ||--o{ medidor
+consumidor  ||--o{ conta
+conta       ||--|| leitura
 funcionario ||--o{ leitura
-taxa ||--|{ consumidor
-medidor ||--o{ leitura
+taxa        ||--|{ consumidor
+medidor     ||--o{ leitura
+cidade      ||--|{ endereco
+endereco    }|--|| consumidor
 
 
 @enduml
