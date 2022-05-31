@@ -9,5 +9,5 @@ CREATE TABLE conta(
     periodo       DATE  NOT NULL,
     consumo       FLOAT     NULL,
     valor         FLOAT     NULL,
-    CONSTRAINT pk_taxa PRIMARY KEY (id)
+    CONSTRAINT pk_conta PRIMARY KEY (id)
 );

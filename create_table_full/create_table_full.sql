@@ -5,8 +5,7 @@ CREATE TABLE consumidor (
     nome          VARCHAR(50)  NOT NULL,
     endereco      VARCHAR(100) NOT NULL,
     tipo          CHAR         NOT NULL,
-    CONSTRAINT PRIMARY KEY (id)
-    
+    CONSTRAINT pk_consumidor PRIMARY KEY (id)
 );
 
 CREATE TABLE taxa(
@@ -25,7 +24,7 @@ CREATE TABLE medidor(
     endereco   VARCHAR(50) NOT NULL,
     tamanho    FLOAT       NOT NULL,
     modelo     VARCHAR(50) NOT NULL,
-    CONSTRAINT PRIMARY KEY (id_medidor)
+    CONSTRAINT pk_medidor PRIMARY KEY (id)
 );
 
 CREATE TABLE leitura(
@@ -50,7 +49,7 @@ CREATE TABLE conta(
     periodo       DATE  NOT NULL,
     consumo       FLOAT     NULL,
     valor         FLOAT     NULL,
-    CONSTRAINT pk_taxa PRIMARY KEY (id)
+    CONSTRAINT pk_conta PRIMARY KEY (id)
 );
 
 CREATE TABLE funcionario(

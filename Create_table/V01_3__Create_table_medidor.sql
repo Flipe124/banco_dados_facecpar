@@ -4,5 +4,5 @@ CREATE TABLE medidor(
     endereco   VARCHAR(50) NOT NULL,
     tamanho    FLOAT       NOT NULL,
     modelo     VARCHAR(50) NOT NULL,
-    CONSTRAINT PRIMARY KEY (id_medidor)
+    CONSTRAINT pk_medidor PRIMARY KEY (id)
 );
