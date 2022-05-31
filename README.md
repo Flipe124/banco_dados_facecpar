@@ -55,9 +55,14 @@ DROP SEQUENCE MINHA_PRIMEIRA_SEQ
    (99, 'Tapejara'      , 'RS'),
    COMMIT;
 ```
-## Gatinhos no postgres são disparados atráves:
+## Gatilhos no postgres são disparados atráves:
 - STATEMENT;
 - ROW.
+
+## O.R.M
+- Um ORM (Object-Relational Mapping) é um Framework ou um conjunto de classes que permite que você faça este trabalho sem precisar escrever códigos de conexão com o banco, querys de SQL a todo momento,
+
+## Exists not exists
 
 
 
