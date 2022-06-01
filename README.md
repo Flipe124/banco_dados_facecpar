@@ -60,9 +60,21 @@ DROP SEQUENCE MINHA_PRIMEIRA_SEQ
 - ROW.
 
 ## O.R.M
-- Um ORM (Object-Relational Mapping) é um Framework ou um conjunto de classes que permite que você faça este trabalho sem precisar escrever códigos de conexão com o banco, querys de SQL a todo momento,
+```
+ Um ORM (Object-Relational Mapping) é um Framework ou um conjunto de classes que permite que você faça este trabalho sem precisar escrever códigos de conexão com o banco, querys de SQL a todo momento,
+```
 
 ## Exists not exists
+
+## trazer elelementos específicos
+```
+   LIKE nome "Judas"   = vai trazer somente o que estiver escrito;
+   LIKE nome "Judas%"  = tudo que comecça com judas;
+   LIKE nome "%botas"  = todos que terminar com botas;
+   LIKE nome "%alb%"   = todos que conter alb;
+   LIKE nome "Rafael_" = todos que tiver Rafael e tiver mais um caractere ex: Rafaela;
+   
+```
 
 
 
